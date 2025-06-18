@@ -1,0 +1,33 @@
+# Ignore node_modules and logs
+node_modules
+logs
+*.log
+
+# Ignore local environment variables
+.env
+.env.*
+
+# Ignore test files and coverage
+coverage
+*.test.ts
+tests/
+jest.config.js
+jest.config.ts
+
+# Ignore TypeScript build artifacts
+dist
+tsconfig.tsbuildinfo
+
+# Ignore system and editor files
+.DS_Store
+.vscode
+.idea
+*.swp
+
+# Git-related
+.git
+.gitignore
+
+# Docker itself
+Dockerfile
+docker-compose.yml
