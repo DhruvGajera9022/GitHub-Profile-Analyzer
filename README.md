@@ -1,6 +1,6 @@
 # GitHub Profile Analyzer API
 
-A comprehensive Node.js/Express API for analyzing GitHub profiles with proper logging, error handling, and MongoDB integration
+A comprehensive Node.js/Express API for analyzing GitHub profiles with proper logging, error handling, and MongoDB integration.
 
 ## Features
 
