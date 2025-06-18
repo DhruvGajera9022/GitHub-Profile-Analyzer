@@ -1,0 +1,28 @@
+name: Deploy Docker Image to Docker Hub
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Load .env file
+        run: |
+          if [ -f .env ]; then
+            export $(grep -v '^#' .env | xargs)
+          fi
+
+      - name: Build Docker image
+        run: docker build . -t dhruvgajera/github-profile-analyzer
+
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      - name: Push Docker image
+        run: docker push dhruvgajera/github-profile-analyzer:latest
